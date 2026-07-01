@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithm Visualizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sorting Visualizer</h1>
+            <p>Compare sorting algorithms dynamically</p>
+        </header>
+        
+        <main>
+            <div class="controls-panel glass">
+                <div class="input-group">
+                    <label for="arrayInput">Enter comma-separated numbers:</label>
+                    <input type="text" id="arrayInput" placeholder="e.g. 5, 2, 9, 1, 5, 6">
+                    <div class="button-row">
+                        <button id="generateBtn" class="btn secondary">Generate Random</button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="algorithmSelect">Choose Algorithm:</label>
+                    <select id="algorithmSelect">
+                        <option value="quickSortRecursive">QuickSort (Recursive)</option>
+                        <option value="quickSortIterative">QuickSort (Iterative)</option>
+                        <option value="mergeSort">MergeSort</option>
+                        <option value="builtIn">Built-in Array.sort()</option>
+                    </select>
+                </div>
+                
+                <button id="sortBtn" class="btn primary">Sort Data</button>
+            </div>
+
+            <div class="results-panel glass">
+                <div class="result-header">
+                    <h2>Results</h2>
+                    <span id="timeDisplay" class="badge">0 ms</span>
+                </div>
+                
+                <div class="visualization">
+                    <h3>Before:</h3>
+                    <div id="arrayBarsBefore" class="bars-container"></div>
+                    
+                    <h3 class="mt-4">After:</h3>
+                    <div id="arrayBarsAfter" class="bars-container"></div>
+                </div>
+
+                <div class="text-results mt-4">
+                    <strong>Sorted Output:</strong>
+                    <div id="sortedText" class="output-box">-</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
