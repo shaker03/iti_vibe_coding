@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus AI</title>
+    <meta name="description" content="A premium AI assistant interface powered by Hugging Face">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Highlight.js for code syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h2>Nexus AI</h2>
+                </div>
+                <button class="new-chat-btn" id="new-chat-btn" title="New Chat">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="nav-section">
+                    <h3 class="nav-title">Recent</h3>
+                    <ul class="chat-history-list" id="chat-history-list">
+                        <!-- We will populate this with JS if we save history, currently just a placeholder -->
+                        <li class="history-item active">
+                            <i class="fa-regular fa-message"></i>
+                            <span class="history-title">New Conversation</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar">U</div>
+                    <div class="user-info">
+                        <div class="user-name">User</div>
+                        <div class="model-badge">Qwen 2.5 7B</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <main class="chat-main">
+            <header class="top-nav">
+                <button class="menu-btn" id="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="current-model-info">
+                    <span class="model-name">Qwen-2.5-7B-Instruct</span>
+                    <span class="model-status">Online</span>
+                </div>
+                <div class="nav-actions">
+                    <button class="icon-btn" title="Settings"><i class="fa-solid fa-gear"></i></button>
+                </div>
+            </header>
+            
+            <div class="chat-messages" id="chat-messages">
+                <div class="welcome-screen" id="welcome-screen">
+                    <div class="welcome-logo">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h1>Welcome to Nexus</h1>
+                    <p>I'm your AI assistant powered by Hugging Face. How can I help you today?</p>
+                    <div class="suggestion-cards">
+                        <div class="suggestion-card" onclick="document.getElementById('chat-input').value = 'Write a python script to parse a CSV file'; document.getElementById('chat-input').focus();">
+                            <h4>Code</h4>
+                            <p>Write a python script to parse a CSV file</p>
+                        </div>
+                        <div class="suggestion-card" onclick="document.getElementById('chat-input').value = 'Explain quantum computing in simple terms'; document.getElementById('chat-input').focus();">
+                            <h4>Explain</h4>
+                            <p>Explain quantum computing in simple terms</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <form class="chat-form" id="chat-form">
+                    <div class="input-wrapper">
+                        <button type="button" class="attachment-btn icon-btn" title="Attach file">
+                            <i class="fa-solid fa-paperclip"></i>
+                        </button>
+                        <textarea id="chat-input" placeholder="Message Nexus..." rows="1"></textarea>
+                        <button type="submit" class="send-btn" id="send-btn" disabled>
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="disclaimer">
+                    Nexus can make mistakes. Consider verifying important information.
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
